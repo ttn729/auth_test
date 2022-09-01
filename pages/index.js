@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { Link } from 'next/link'
 
 import { useUser } from '@auth0/nextjs-auth0/dist/frontend'
 import { isLocalURL } from 'next/dist/shared/lib/router/router';
@@ -16,14 +17,10 @@ export default function Home() {
     return (
       <>
         <h1>Hi {user.name}!</h1>
-        <a href="/api/auth/logout">Logout</a>
+        <Link href="/api/auth/logout">Logout</Link>
       </>
     )
   }
-  return (
-    <a href="/api/auth/login">Login</a>
-  )
-
   return (
     <div className={styles.container}>
       <Head>
@@ -33,9 +30,12 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+      <Link href="/api/auth/login">Login</Link>
+
         <h1 className={styles.title}>
           Welcome to Spicy 
         </h1>
+
 
         <p className={styles.description}>
           Hello a Edric!
