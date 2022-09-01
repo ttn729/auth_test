@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-
 import { useUser } from '@auth0/nextjs-auth0'
+import { Button, Box } from '@mui/material'
 
 export default function Home() {
   const { user, error, isLoading } = useUser();
@@ -14,7 +14,8 @@ export default function Home() {
     return (
       <>
         <h1>Hi {user.name}!</h1>
-        <Link href="/api/auth/logout"><a>Logout</a></Link>
+        <Button variant="outlined"><Link href="/api/auth/logout"><a>Logout</a></Link></Button>
+        
       </>
     )
   }
@@ -26,11 +27,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Box sx={{float:"right", m:2}}>
+        <Button variant="contained"><Link href="/api/auth/login"><a>Login</a></Link></Button>
+      </Box>
+
+
       <main className={styles.main}>
-      <Link href="/api/auth/login"><a>Login</a></Link>
 
         <h1 className={styles.title}>
-          Welcome to Spicy 
+          Welcome Message
         </h1>
 
 
