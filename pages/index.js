@@ -1,14 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Link } from 'next/link'
+import Link from 'next/link'
 
-import { useUser } from '@auth0/nextjs-auth0/dist/frontend'
-import { isLocalURL } from 'next/dist/shared/lib/router/router';
+import { useUser } from '@auth0/nextjs-auth0'
 
 export default function Home() {
   const { user, error, isLoading } = useUser();
-  console.log(user);
 
   if (isLoading) return <div>...loading</div>
 
@@ -17,7 +14,7 @@ export default function Home() {
     return (
       <>
         <h1>Hi {user.name}!</h1>
-        <Link href="/api/auth/logout">Logout</Link>
+        <Link href="/api/auth/logout"><a>Logout</a></Link>
       </>
     )
   }
@@ -30,7 +27,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <Link href="/api/auth/login">Login</Link>
+      <Link href="/api/auth/login"><a>Login</a></Link>
 
         <h1 className={styles.title}>
           Welcome to Spicy 
