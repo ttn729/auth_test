@@ -1,4 +1,5 @@
 # Testing the auth0 API
+https://auth-test-orcin.vercel.app/
 
 This project tests the basic functionality of the auth0 API, which allows users to sign in using their email or Google account.
 
